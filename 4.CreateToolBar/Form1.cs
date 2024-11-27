@@ -6,17 +6,27 @@ namespace _4.CreateToolBar
     {
         ToolStrip tBar;
         ImageList list;
-        Image open = Properties.Resources.Open;
-        Image save = Properties.Resources.Save;
-        Image exit = Properties.Resources.Exit;
+       
         public Form1()
         {
             InitializeComponent();
             list = new ImageList();
             list.ImageSize = new Size(32, 32);
-            list.Images.Add(open);
-            list.Images.Add(save);
-            list.Images.Add(exit);
+            byte[] imageBytes = Properties.Resources.Open;
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                list.Images.Add(Image.FromStream(ms));
+            }
+            imageBytes = Properties.Resources.Save;
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                list.Images.Add(Image.FromStream(ms));
+            }
+            imageBytes = Properties.Resources.Exit;
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                list.Images.Add(Image.FromStream(ms));
+            }
 
             tBar = new ToolStrip();
 
