@@ -1,4 +1,4 @@
-﻿namespace CreateToolBar
+﻿namespace ToolBarProject
 {
     partial class Form1
     {

@@ -1,4 +1,4 @@
-namespace CreateToolBar
+namespace ToolBarProject
 {
     internal static class Program
     {

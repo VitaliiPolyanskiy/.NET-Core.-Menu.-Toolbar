@@ -7,7 +7,7 @@ namespace StatusStrip
         {
             InitializeComponent();
 
-            infoLabel.Text = "Текущие дата и время:";
+            infoLabel.Text = "Поточні дата та час:";
             string str = DateTime.Now.DayOfWeek.ToString();
             dayOfWeek.Text = str;
             timer1.Start();

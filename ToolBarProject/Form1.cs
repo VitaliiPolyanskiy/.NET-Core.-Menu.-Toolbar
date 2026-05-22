@@ -1,33 +1,24 @@
-﻿using System.Text;
+using System.Text;
 
-namespace CreateToolBar
+namespace ToolBarProject
 {
     public partial class Form1 : Form
     {
         ToolStrip tBar;
         ImageList list;
-       
+        Image open = Properties.Resources.Open;
+        Image save = Properties.Resources.Save;
+        Image exit = Properties.Resources.Exit;
+
         public Form1()
         {
             InitializeComponent();
             list = new ImageList();
             list.ImageSize = new Size(32, 32);
-            byte[] imageBytes = Properties.Resources.Open;
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                list.Images.Add(Image.FromStream(ms));
-            }
-            imageBytes = Properties.Resources.Save;
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                list.Images.Add(Image.FromStream(ms));
-            }
-            imageBytes = Properties.Resources.Exit;
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                list.Images.Add(Image.FromStream(ms));
-            }
-
+            list.Images.Add(open);
+            list.Images.Add(save);
+            list.Images.Add(exit);
+           
             tBar = new ToolStrip();
 
             tBar.ImageList = list; //Прив'яжемо список картинок до тулбару

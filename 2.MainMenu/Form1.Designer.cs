@@ -1,4 +1,4 @@
-﻿namespace _2.MainMenu
+﻿namespace MainMenu
 {
     partial class Form1
     {
@@ -38,7 +38,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 48);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Отключить пункт меню \"О программе\"";
+            this.button1.Text = "Вимкнути пункт меню \"Про додаток\"";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

@@ -1,4 +1,4 @@
-﻿namespace _2.MainMenu
+﻿namespace MainMenu
 {
     public partial class Form1 : Form
     {
@@ -16,37 +16,37 @@
             l.Width = 200;
             l.Height = 50;
             l.BorderStyle = BorderStyle.FixedSingle;
-            this.Text = "Работа с меню";
+            this.Text = "Робота з меню";
             MyMenu = new MenuStrip();
-            m1 = new ToolStripMenuItem("Игра");
+            m1 = new ToolStripMenuItem("Гра");
             m1.MouseEnter += new EventHandler(subm1_Select);
             MyMenu.Items.Add(m1);
-            m2 = new ToolStripMenuItem("О программе");
+            m2 = new ToolStripMenuItem("Про додаток");
             m2.MouseEnter += new EventHandler(subm1_Select);
             MyMenu.Items.Add(m2);
-            subm1 = new ToolStripMenuItem("Начать игру");
+            subm1 = new ToolStripMenuItem("Почати гру");
             subm1.Click += new EventHandler(BeginGame);
             subm1.MouseEnter += new EventHandler(subm1_Select);
             m1.DropDownItems.Add(subm1);
-            subm2 = new ToolStripMenuItem("Уровень");
+            subm2 = new ToolStripMenuItem("Рівень");
             subm2.MouseEnter += new EventHandler(subm1_Select);
             m1.DropDownItems.Add(subm2);
-            subm3 = new ToolStripMenuItem("Лёгкий уровень");
+            subm3 = new ToolStripMenuItem("Легкий рівень");
             subm2.DropDownItems.Add(subm3);
             subm3.Checked = true;
-            subm4 = new ToolStripMenuItem("Средний уровень");
+            subm4 = new ToolStripMenuItem("Середній рівень");
             subm2.DropDownItems.Add(subm4);
-            subm5 = new ToolStripMenuItem("Сложный уровень");
+            subm5 = new ToolStripMenuItem("Складний рівень");
             subm2.DropDownItems.Add(subm5);
-          
+
             subm3.Click += new EventHandler(Level);
 
             subm3.MouseEnter += new EventHandler(subm1_Select);
-            subm4.Click += new EventHandler(Level); ;
+            subm4.Click += new EventHandler(Level); 
             subm4.MouseEnter += new EventHandler(subm1_Select);
-            subm5.Click += new EventHandler(Level); ;
+            subm5.Click += new EventHandler(Level); 
             subm5.MouseEnter += new EventHandler(subm1_Select);
-            subm6 = new ToolStripMenuItem("Выход");
+            subm6 = new ToolStripMenuItem("Вихід");
             m1.DropDownItems.Add(subm6);
             subm6.Click += new EventHandler(Quit);
             subm6.MouseEnter += new EventHandler(subm1_Select);
@@ -56,48 +56,46 @@
 
         private void subm1_Select(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem) sender;
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
             l.Text = item.Text;
         }
 
-        //обработчик пункта меню Уровень
-
+        //обробник пункту меню Рівень
         private void Level(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
             for (int i = 0; i < subm2.DropDownItems.Count; i++)
             {
-                ToolStripMenuItem menuitem = (ToolStripMenuItem) subm2.DropDownItems[i];
+                ToolStripMenuItem menuitem = (ToolStripMenuItem)subm2.DropDownItems[i];
                 menuitem.Checked = false;
             }
             item.Checked = true;
             MessageBox.Show("Пункт меню " + item.Text);
         }
 
-
-        //обработчик пункта меню Выход
+        //обробник пункту меню Вихід
         private void Quit(object sender, EventArgs e)
         {
             Close();
         }
 
-        //обработчик пункта меню Начать игру
+        //обробник пункту меню Почати гру
         private void BeginGame(object sender, EventArgs e)
         {
-            MessageBox.Show("Пункт меню 'Начать игру'");
+            MessageBox.Show("Пункт меню 'Почати гру'");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (flag2)
             {
-                button1.Text = "Включить пункт меню \"О программе\"";
+                button1.Text = "Увімкнути пункт меню \"Про додаток\"";
                 MyMenu.Items.Remove(m2);
             }
             else
             {
-                button1.Text = "Отключить пункт меню \"О программе\"";
-                m2 = new ToolStripMenuItem("О программе");
+                button1.Text = "Вимкнути пункт меню \"Про додаток\"";
+                m2 = new ToolStripMenuItem("Про додаток");
                 m2.MouseEnter += new EventHandler(subm1_Select);
                 MyMenu.Items.Add(m2);
             }
